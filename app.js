@@ -5,7 +5,6 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
 
-
 const app = express();
 
 //Passport config
@@ -52,8 +51,6 @@ app.use((req, res, next)=>{
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 
-
-
+//Set and listen to port
 const PORT = process.env.PORT || 5000;
-
 app.listen(PORT, console.log(`Sever started on port ${PORT}.`));
