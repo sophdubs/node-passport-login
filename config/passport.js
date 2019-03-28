@@ -8,8 +8,8 @@ const User = require('../models/User');
 module.exports = function(passport) {
     passport.use(
         new LocalStrategy({ usernameField: 'email'}, (email, password, done) => {
-            //Match User
 
+            //Match User
             User.findOne({ email: email})
                 .then(user => {
                     if(!user){
@@ -26,7 +26,8 @@ module.exports = function(passport) {
                             return done(null, false, { message: 'Password incorrect'});
                         }
 
-                    });
+                    })
+                .catch(err => console.log(err));
                 });
         })
     );
